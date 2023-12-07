@@ -40,6 +40,10 @@ public class Book {
 	public static void setBookIds(AtomicInteger bookIds) {
 		Book.bookIds = bookIds;
 	}
+	
+	public static int setAndIncrementIds() {
+		return bookIds.getAndIncrement();
+	}
 
 	public String getBookId() {
 		return bookId;

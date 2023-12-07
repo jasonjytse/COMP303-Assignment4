@@ -10,9 +10,9 @@ import  Home from './components/Home.jsx'
 import Books from './components/Books.jsx'
 import './App.css'
 import AddBook from './components/AddBook.jsx';
+import EditBook from './components/EditBook.jsx';
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
@@ -20,7 +20,7 @@ function App() {
         <Navbar bg="primary" variant="dark">
           <Container>
             <Navbar.Brand as={Link} href="#home">
-              Home
+              Jason Tse (301156315)
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
@@ -46,6 +46,7 @@ function App() {
             <Route index element={<Home />} />
             <Route path="books" element={<Books />} />
             <Route path="/addbook" element={<AddBook />} />
+            <Route path="/editbook/:id" element={<EditBook />} />
           {/*<Route path="members" element={<Members />} />
           <Route path="publishers" element={<Publishers />} /> */}
           </Routes>

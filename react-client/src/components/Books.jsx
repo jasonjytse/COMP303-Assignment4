@@ -52,8 +52,16 @@ function Books()  {
                             <td>{book.bookAuthor}</td>
                             <td>{book.bookPrice}</td>
                             <td>{book.isBookInStock == true ? "Yes" : "No"}</td>
-                            <td><Button variant="warning">Edit</Button></td>
-                            <td><Button variant="danger" onClick={() => deleteBook(book)}>Remove</Button></td>
+                            <td>
+                                <Button variant="warning" onClick={() => navigate(`/editbook/${book.bookId}`, { state: { book: book } })}>
+                                    Edit
+                                </Button>
+                            </td>
+                            <td>
+                                <Button variant="danger" onClick={() => deleteBook(book)}>
+                                    Remove
+                                </Button>
+                            </td>
                         </tr>
                     ))}
                 </tbody>
