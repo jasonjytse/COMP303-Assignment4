@@ -32,7 +32,7 @@ const AddMember = () => {
             await axios.post('http://localhost:8084/member', member);
             window.alert("Member added successfully!");
         } catch (error) {
-            console.log(error);
+            window.alert(error);
         }
         navigate('/member');
     };

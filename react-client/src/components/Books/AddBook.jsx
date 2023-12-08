@@ -29,7 +29,7 @@ const AddBook = () => {
                 await axios.post('http://localhost:8084/books', book);
                 window.alert("Book added successfully!");
             } catch (error) {
-                console.log(error);
+                window.alert(error);
             }
             navigate('/books');
         } else {

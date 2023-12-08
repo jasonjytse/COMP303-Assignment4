@@ -4,13 +4,15 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState } from 'react'
 import './App.css'
 
-import { BrowserRouter as Router, Route, Link, Routes,  } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link, Routes, } from 'react-router-dom';
 import { Navbar, Container, Nav } from 'react-bootstrap';
-import  Home from './components/Home.jsx'
-import Books from './components/Books.jsx'
+import Home from './components/Home.jsx'
+import Books from './components/Books/Books.jsx'
 import './App.css'
-import AddBook from './components/AddBook.jsx';
-import EditBook from './components/EditBook.jsx';
+import AddBook from './components/Books/AddBook.jsx';
+import EditBook from './components/Books/EditBook.jsx';
+import Members from './components/Members/Member.jsx';
+import Publishers from './components/Publishers/Publisher.jsx';
 
 function App() {
 
@@ -47,8 +49,8 @@ function App() {
             <Route path="books" element={<Books />} />
             <Route path="/addbook" element={<AddBook />} />
             <Route path="/editbook/:id" element={<EditBook />} />
-          {/*<Route path="members" element={<Members />} />
-          <Route path="publishers" element={<Publishers />} /> */}
+            <Route path="members" element={<Members />} />
+            <Route path="publishers" element={<Publishers />} />
           </Routes>
         </div >
       </Router>

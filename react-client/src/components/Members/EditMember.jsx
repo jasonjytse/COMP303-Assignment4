@@ -31,7 +31,7 @@ const EditMember = () => {
             await axios.put('http://localhost:8084/member', member);
             window.alert("Member edited successfully!");
         } catch (error) {
-            console.log(error);
+            window.alert(error);
         }
         navigate('/member');
     };

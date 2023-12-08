@@ -15,7 +15,7 @@ function Publisher()  {
                 setPublishers(response.data);
             })
         } catch(error) {
-            console.log(error);
+            window.alert(error);
         }
     }
 
@@ -25,7 +25,7 @@ function Publisher()  {
             fetchPublishers();
         })
         .catch((error) => {
-            console.log(error);
+            window.alert(error);
         });
     };
 

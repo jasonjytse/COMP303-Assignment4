@@ -22,7 +22,7 @@ d
             await axios.post('http://localhost:8084/publisher', publisher);
             window.alert("Publisher added successfully!");
         } catch (error) {
-            console.log(error);
+            window.alert(error);
         }
         navigate('/publisher');
     };

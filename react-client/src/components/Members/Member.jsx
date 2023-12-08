@@ -15,7 +15,7 @@ function Member()  {
                 setMembers(response.data);
             })
         } catch(error) {
-            console.log(error);
+            window.alert(error);
         }
     }
 
@@ -25,7 +25,7 @@ function Member()  {
             fetchMembers();
         })
         .catch((error) => {
-            console.log(error);
+            window.alert(error);
         });
     };
 

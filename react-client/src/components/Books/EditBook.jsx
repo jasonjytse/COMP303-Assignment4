@@ -33,7 +33,7 @@ const EditBook = () => {
                 await axios.put(`http://localhost:8084/books/${bookId}`, book);
                 window.alert("Book edited successfully!");
             } catch (error) {
-                console.log(error);
+                window.alert(error);
             }
             navigate('/books');
         } else {

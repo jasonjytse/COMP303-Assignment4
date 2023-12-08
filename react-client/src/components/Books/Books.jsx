@@ -14,7 +14,7 @@ function Books()  {
             setBooks(response.data);
         })
         .catch((error) => {
-            console.log(error);
+            window.alert(error);
         });
     }
 
@@ -25,7 +25,7 @@ function Books()  {
             fetchBooks();
         })
         .catch((error) => {
-            console.log(error);
+            window.alert(error);
         });
     };
 
