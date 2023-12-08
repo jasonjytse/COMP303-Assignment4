@@ -1,6 +1,10 @@
 package com.jt.models;
+/**
+ * 
+ * @author Jason Tse
+ * Member Model
+ */
 
-import java.util.Date;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class Member {

@@ -1,4 +1,9 @@
 package com.jt.services;
+/**
+ * 
+ * @author Jason Tse
+ * Publisher Service layer to handle business logic
+ */
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

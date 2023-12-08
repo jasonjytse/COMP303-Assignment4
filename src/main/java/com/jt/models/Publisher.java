@@ -1,17 +1,16 @@
 package com.jt.models;
+/**
+*
+* @author Jason Tse
+*
+* Publisher class
+*
+*/
 
 import java.util.concurrent.atomic.AtomicInteger;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
-
-/**
- *
- * @author Jason Tse
- *
- * Publisher class represents a book publisher. A publisher can publish many books, but a book can only have one publisher
- *
- */
 
 public class Publisher {
 

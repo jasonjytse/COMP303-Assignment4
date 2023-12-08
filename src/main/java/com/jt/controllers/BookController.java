@@ -1,6 +1,10 @@
 package com.jt.controllers;
 
-import java.util.Optional;
+/**
+ * 
+ * @author Jason Tse
+ * Book Controller to handle web requests
+ */
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -11,7 +15,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.jt.models.Book;
@@ -37,12 +40,6 @@ public class BookController {
 	public Mono<Book> getByBookId(@PathVariable("id") String id) {
 		return bookService.getOneBookById(id);
 	}
-// 	Old HTML Form POST method if thymeleaf was being used
-//	@PostMapping
-//	public Mono<Book> createBook(@RequestParam String bookTitle, @RequestParam String bookAuthor, @RequestParam String bookPrice) {
-//		Book book = new Book(bookTitle, bookAuthor, bookPrice);
-//		return bookService.createBook(book);
-//	}
 
 	// New JSON POST method where React direct sends the Book object as a JSON object
 	@PostMapping
@@ -50,6 +47,30 @@ public class BookController {
 		book.setBookId(String.valueOf(Book.getAndIncrementIds()));
 		return bookService.createBook(book);
 	}
+	
+	@PutMapping()
+	public Mono<Book> updateBookById(@RequestBody Book book) {
+		return bookService.findAndUpdateBook(book);
+	}
+
+	@DeleteMapping()
+	public Mono<Void> deleteAllBooks() {
+		return bookService.deleteBooks();
+	}
+
+	@DeleteMapping("/{id}")
+	public Mono<Void> deleteBookById(@PathVariable final String id) {
+		return bookService.deleteBook(id);
+	}
+	
+// 	Old HTML Form POST method if thymeleaf was being used
+//	@PostMapping
+//	public Mono<Book> createBook(@RequestParam String bookTitle, @RequestParam String bookAuthor, @RequestParam String bookPrice) {
+//		Book book = new Book(bookTitle, bookAuthor, bookPrice);
+//		return bookService.createBook(book);
+//	}
+
+
 
 //	@PutMapping("/{id}")
 //	public Mono<Book> updateBookById(@PathVariable("id") String id, @RequestParam Optional<String> bookTitle, @RequestParam Optional<String> bookAuthor, @RequestParam Optional<String> bookPrice, @RequestParam Optional<Boolean> bookInStock) {
@@ -76,19 +97,5 @@ public class BookController {
 //		return bookService.updateBook(id, book);
 //	}
 
-	@PutMapping()
-	public Mono<Book> updateBookById(@RequestBody Book book) {
-		return bookService.findAndUpdateBook(book);
-	}
-
-	@DeleteMapping()
-	public Mono<Void> deleteAllBooks() {
-		return bookService.deleteBooks();
-	}
-
-	@DeleteMapping("/{id}")
-	public Mono<Void> deleteBookById(@PathVariable final String id) {
-		return bookService.deleteBook(id);
-	}
 
 }

@@ -1,4 +1,9 @@
 package com.jt.interfaces;
+/**
+ * 
+ * @author Jason Tse
+ * Member Repository interface implementing MongoDB interface
+ */
 
 import org.springframework.data.mongodb.repository.ReactiveMongoRepository;
 

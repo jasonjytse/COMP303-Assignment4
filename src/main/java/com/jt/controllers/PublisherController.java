@@ -1,4 +1,9 @@
 package com.jt.controllers;
+/**
+ * 
+ * @author Jason Tse
+ * Publisher Controller to handle web requests
+ */
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;

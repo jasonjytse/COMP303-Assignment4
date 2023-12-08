@@ -1,4 +1,9 @@
 package com.jt.models;
+/**
+ * 
+ * @author Jason Tse
+ * Book Model
+ */
 
 import java.util.concurrent.atomic.AtomicInteger;
 
