@@ -27,59 +27,65 @@ public class BookController {
 
 	@Autowired
 	private BookService bookService;
-	
+
 	@GetMapping
 	public Flux<Book> getAllBooks() {
 		return bookService.getAllBooks();
 	}
-	
+
 	@GetMapping("/{id}")
 	public Mono<Book> getByBookId(@PathVariable("id") String id) {
 		return bookService.getOneBookById(id);
 	}
-	
+// 	Old HTML Form POST method if thymeleaf was being used
 //	@PostMapping
 //	public Mono<Book> createBook(@RequestParam String bookTitle, @RequestParam String bookAuthor, @RequestParam String bookPrice) {
 //		Book book = new Book(bookTitle, bookAuthor, bookPrice);
 //		return bookService.createBook(book);
 //	}
-	
+
+	// New JSON POST method where React direct sends the Book object as a JSON object
 	@PostMapping
 	public Mono<Book> createBook(@RequestBody Book book) {
-		book.setBookId(String.valueOf(Book.setAndIncrementIds()));
-		return bookService.createBook(book); 
+		book.setBookId(String.valueOf(Book.getAndIncrementIds()));
+		return bookService.createBook(book);
 	}
-	
-	@PutMapping("/{id}")
-	public Mono<Book> updateBookById(@PathVariable("id") String id, @RequestParam Optional<String> bookTitle, @RequestParam Optional<String> bookAuthor, @RequestParam Optional<String> bookPrice, @RequestParam Optional<Boolean> bookInStock) {
-		Book book = new Book();
-		book.setBookId(id);
-		
-		if (bookTitle.isPresent()) {
-			book.setBookTitle(bookTitle.get());
-		}
-		
-		if (bookAuthor.isPresent()) {
-			book.setBookAuthor(bookAuthor.get());
-		}
-		
-		if (bookPrice.isPresent()) {
-			book.setBookPrice(Double.parseDouble(bookPrice.get()));
-		}
-		
-		if (bookInStock.isPresent()) {
-			book.setIsBookInStock(bookInStock.get());
-		}
-		
 
-		return bookService.updateBook(id, book);
+//	@PutMapping("/{id}")
+//	public Mono<Book> updateBookById(@PathVariable("id") String id, @RequestParam Optional<String> bookTitle, @RequestParam Optional<String> bookAuthor, @RequestParam Optional<String> bookPrice, @RequestParam Optional<Boolean> bookInStock) {
+//		Book book = new Book();
+//		book.setBookId(id);
+//
+//		if (bookTitle.isPresent()) {
+//			book.setBookTitle(bookTitle.get());
+//		}
+//
+//		if (bookAuthor.isPresent()) {
+//			book.setBookAuthor(bookAuthor.get());
+//		}
+//
+//		if (bookPrice.isPresent()) {
+//			book.setBookPrice(Double.parseDouble(bookPrice.get()));
+//		}
+//
+//		if (bookInStock.isPresent()) {
+//			book.setIsBookInStock(bookInStock.get());
+//		}
+//
+//
+//		return bookService.updateBook(id, book);
+//	}
+
+	@PutMapping()
+	public Mono<Book> updateBookById(@RequestBody Book book) {
+		return bookService.findAndUpdateBook(book);
 	}
-	
+
 	@DeleteMapping()
 	public Mono<Void> deleteAllBooks() {
 		return bookService.deleteBooks();
 	}
-	
+
 	@DeleteMapping("/{id}")
 	public Mono<Void> deleteBookById(@PathVariable final String id) {
 		return bookService.deleteBook(id);
