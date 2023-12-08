@@ -31,7 +31,7 @@ public class PublisherController {
 		return publisherService.getAllPublishers();
 	}
 
-	@GetMapping("{/id}")
+	@GetMapping("/{id}")
 	public Mono<Publisher> getPublisherById(@PathVariable("id") String id) {
 		return publisherService.getOnePublisherById(id);
 	}
