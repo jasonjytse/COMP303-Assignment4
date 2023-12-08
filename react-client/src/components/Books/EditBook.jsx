@@ -8,6 +8,7 @@ const EditBook = () => {
     const location = useLocation();
     const book = location.state.book;
 
+    const [bookId] = useState(book.bookId);
     const [bookTitle, setBookTitle] = useState(book.bookTitle);
     const [bookAuthor, setBookAuthor] = useState(book.bookAuthor);
     const [bookPrice, setBookPrice] = useState(book.bookPrice);
@@ -21,6 +22,7 @@ const EditBook = () => {
 
         if (validateForm) {
             const book = {
+                bookId: bookId,
                 bookTitle: bookTitle,
                 bookAuthor: bookAuthor,
                 bookPrice: bookPrice,
@@ -28,8 +30,8 @@ const EditBook = () => {
             }
 
             try {
-                await axios.put('http://localhost:8084/books', book);
-                window.alert("Book added successfully!");
+                await axios.put(`http://localhost:8084/books/${bookId}`, book);
+                window.alert("Book edited successfully!");
             } catch (error) {
                 console.log(error);
             }
