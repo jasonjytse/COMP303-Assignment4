@@ -7,10 +7,16 @@ import './App.css'
 import { BrowserRouter as Router, Route, Link, Routes,  } from 'react-router-dom';
 import { Navbar, Container, Nav } from 'react-bootstrap';
 import  Home from './components/Home.jsx'
-import Books from './components/Books.jsx'
+import Books from './components/Books/Books.jsx'
 import './App.css'
-import AddBook from './components/AddBook.jsx';
-import EditBook from './components/EditBook.jsx';
+import AddBook from './components/Books/AddBook.jsx';
+import EditBook from './components/Books/EditBook.jsx';
+import Member from './components/Members/Member.jsx';
+import AddMember from './components/Members/AddMember.jsx';
+import EditMember from './components/Members/EditMember.jsx';
+import Publishers from './components/Publishers/Publishers.jsx';
+import AddPublisher from './components/Publishers/AddPublisher.jsx';
+import EditPublisher from './components/Publishers/EditPublisher.jsx';
 
 function App() {
 
@@ -47,8 +53,12 @@ function App() {
             <Route path="books" element={<Books />} />
             <Route path="/addbook" element={<AddBook />} />
             <Route path="/editbook/:id" element={<EditBook />} />
-          {/*<Route path="members" element={<Members />} />
-          <Route path="publishers" element={<Publishers />} /> */}
+            <Route path="members" element={<Member />} />
+            <Route path="/addmember" element={<AddMember />} />
+            <Route path="/editmember/:id" element={<EditMember />} />
+            <Route path="publishers" element={<Publishers />} />
+            <Route path="/addpublisher" element={<AddPublisher />} />
+            <Route path="/editpublisher/:id" element={<EditPublisher />} />
           </Routes>
         </div >
       </Router>
