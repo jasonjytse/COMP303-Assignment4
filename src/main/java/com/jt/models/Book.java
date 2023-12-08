@@ -14,7 +14,7 @@ public class Book {
 
 	// empty constructor for BookService getAllBooks() method
 	public Book() {}
-	
+
 	// Constructor for update operation
 	public Book(String bookId, String bookTitle, String bookAuthor, String bookPrice, boolean bookInStock) {
 		this.bookId = bookId;
@@ -40,8 +40,8 @@ public class Book {
 	public static void setBookIds(AtomicInteger bookIds) {
 		Book.bookIds = bookIds;
 	}
-	
-	public static int setAndIncrementIds() {
+
+	public static int getAndIncrementIds() {
 		return bookIds.getAndIncrement();
 	}
 

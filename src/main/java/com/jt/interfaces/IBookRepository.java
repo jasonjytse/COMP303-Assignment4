@@ -6,8 +6,9 @@ import com.jt.models.Book;
 
 import reactor.core.publisher.Mono;
 
-
-public interface IBookRepository extends ReactiveMongoRepository<Book, String>{
+public interface IBookRepository extends ReactiveMongoRepository<Book, String> {
 	Mono<Book> findByBookId(String bookId);
 	Mono<Void> deleteByBookId(String bookId);
+
+
 }

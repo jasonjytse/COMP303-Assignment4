@@ -9,11 +9,14 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.jt.models.Book;
-import com.jt.services.BookService;
+import com.jt.models.Publisher;
+import com.jt.services.PublisherService;
 
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
 
 @RequestMapping("publisher")
 @RestController
@@ -21,26 +24,38 @@ import reactor.core.publisher.Mono;
 public class PublisherController {
 
 	@Autowired
-	private BookService bookService;
-	
+	private PublisherService publisherService;
+
 	@GetMapping
-	public Flux<Book> getAllBooks() {
-		return null;
+	public Flux<Publisher> getAllBooks() {
+		return publisherService.getAllPublishers();
 	}
-	
-	@GetMapping("{id}")
-	public Mono<Book> getByBookId() {
-		return null;
+
+	@GetMapping("{/id}")
+	public Mono<Publisher> getPublisherById(@PathVariable("id") String id) {
+		return publisherService.getOnePublisherById(id);
 	}
-	
-	@PutMapping("{id}")
-	public Mono updateBookById() {
-		return null;
+
+	@PostMapping
+	public Mono<Publisher> createPublisher(@RequestBody Publisher publisher) {
+		publisher.setPublisherId(String.valueOf(Publisher.getAndIncrementIds())); ;
+		return publisherService.createPublisher(publisher);
 	}
-	
-	@DeleteMapping("{id}")
-	public Mono delete(@PathVariable final String id) {
-		return null;
+
+
+	@PutMapping()
+	public Mono<Publisher> updateBookById(@RequestBody Publisher publisher) {
+		return publisherService.findAndUpdatePublisher(publisher);
+	}
+
+	@DeleteMapping("/{id}")
+	public Mono<Void> delete(@PathVariable final String id) {
+		return publisherService.deletePublisher(id);
+	}
+
+	@DeleteMapping()
+	public Mono<Void> deleteAll() {
+		return publisherService.deletePublishers();
 	}
 
 }

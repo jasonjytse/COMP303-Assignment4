@@ -1,18 +1,23 @@
 package com.jt.models;
 
 import java.util.Date;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class Member {
 
+	private static AtomicInteger memberIds = new AtomicInteger(0);
+
 	private String memberId;
-	private Date memberSignupDate;
+	private String memberSignupDate;
 	private String membershipType;
 	private String memberAddress;
 	private String memberName;
-	private Date memberExpiryDate;
-	
-	public Member(String memberId, Date memberSignupDate, String membershipType, String memberAddress,
-			String memberName, Date memberExpiryDate) {
+	private String memberExpiryDate;
+
+	public Member() {};
+
+	public Member(String memberId, String memberSignupDate, String membershipType, String memberAddress,
+			String memberName, String memberExpiryDate) {
 		super();
 		this.memberId = memberId;
 		this.memberSignupDate = memberSignupDate;
@@ -20,6 +25,18 @@ public class Member {
 		this.memberAddress = memberAddress;
 		this.memberName = memberName;
 		this.memberExpiryDate = memberExpiryDate;
+	}
+
+	public static AtomicInteger getMemberIds() {
+		return memberIds;
+	}
+
+	public static void setMemberIds(AtomicInteger memberIds) {
+		Member.memberIds = memberIds;
+	}
+
+	public static int getAndIncrementIds() {
+		return memberIds.getAndIncrement();
 	}
 
 	public String getMemberId() {
@@ -30,11 +47,11 @@ public class Member {
 		this.memberId = memberId;
 	}
 
-	public Date getMemberSignupDate() {
+	public String getMemberSignupDate() {
 		return memberSignupDate;
 	}
 
-	public void setMemberSignupDate(Date memberSignupDate) {
+	public void setMemberSignupDate(String memberSignupDate) {
 		this.memberSignupDate = memberSignupDate;
 	}
 
@@ -62,15 +79,17 @@ public class Member {
 		this.memberName = memberName;
 	}
 
-	public Date getMemberExpiryDate() {
+	public String getMemberExpiryDate() {
 		return memberExpiryDate;
 	}
 
-	public void setMemberExpiryDate(Date memberExpiryDate) {
+	public void setMemberExpiryDate(String memberExpiryDate) {
 		this.memberExpiryDate = memberExpiryDate;
 	}
-	
-	
-	
+
+
+
+
+
 
 }
