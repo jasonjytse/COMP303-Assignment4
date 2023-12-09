@@ -12,7 +12,11 @@ import './App.css'
 import AddBook from './components/Books/AddBook.jsx';
 import EditBook from './components/Books/EditBook.jsx';
 import Members from './components/Members/Member.jsx';
+import AddMembers from './components/Members/AddMember.jsx';
+import EditMember from './components/Members/EditMember.jsx';
 import Publishers from './components/Publishers/Publisher.jsx';
+import EditPublisher from './components/Publishers/EditPublisher.jsx';
+import AddPublisher from './components/Publishers/AddPublisher.jsx';
 
 function App() {
 
@@ -47,10 +51,14 @@ function App() {
           <Routes>
             <Route index element={<Home />} />
             <Route path="books" element={<Books />} />
-            <Route path="/addbook" element={<AddBook />} />
-            <Route path="/editbook/:id" element={<EditBook />} />
+            <Route path="addbook" element={<AddBook />} />
+            <Route path="editbook/:id" element={<EditBook />} />
             <Route path="members" element={<Members />} />
+            <Route path="addmember" element={<AddMembers />} />
+            <Route path="editmember/:id" element={<EditMember />} />
             <Route path="publishers" element={<Publishers />} />
+            <Route path="editpublisher/:id" element={<EditPublisher />} />
+            <Route path="addpublisher" element={<AddPublisher />} />
           </Routes>
         </div >
       </Router>

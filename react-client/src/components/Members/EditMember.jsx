@@ -33,7 +33,7 @@ const EditMember = () => {
         } catch (error) {
             window.alert(error);
         }
-        navigate('/member');
+        navigate('/members');
     };
 
 

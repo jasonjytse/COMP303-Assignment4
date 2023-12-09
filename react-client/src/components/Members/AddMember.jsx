@@ -34,7 +34,7 @@ const AddMember = () => {
         } catch (error) {
             window.alert(error);
         }
-        navigate('/member');
+        navigate('/members');
     };
 
     return (

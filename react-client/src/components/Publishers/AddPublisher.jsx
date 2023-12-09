@@ -10,7 +10,7 @@ const AddPublisher = () => {
 
     const [publisherName, setPublisherName] = useState('');
     const [publisherAddress, setPublisherAddress] = useState('');
-d
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -24,7 +24,7 @@ d
         } catch (error) {
             window.alert(error);
         }
-        navigate('/publisher');
+        navigate('/publishers');
     };
 
     return (
