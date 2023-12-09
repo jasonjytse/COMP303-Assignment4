@@ -4,7 +4,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import { useNavigate, useLocation } from 'react-router-dom';
 
-const EditPublisher () => {
+const EditPublisher = () => {
 
     let navigate = useNavigate();
     const location = useLocation();
@@ -12,7 +12,7 @@ const EditPublisher () => {
     const publisher = location.state.publisher;
     const [publisherName, setPublisherName] = useState(publisher.publisherName);
     const [publisherAddress, setPublisherAddress] = useState(publisher.publisherAddress);
-d
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();

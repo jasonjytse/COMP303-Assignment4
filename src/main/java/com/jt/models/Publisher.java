@@ -9,9 +9,6 @@ package com.jt.models;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
-import org.springframework.context.annotation.Bean;
-import org.springframework.stereotype.Component;
-
 public class Publisher {
 
 	private static AtomicInteger publisherIds = new AtomicInteger(0);

@@ -45,8 +45,8 @@ function Publisher()  {
                 <tbody>
                     {publishers.map((publisher) => (
                         <tr key={publisher.id}>
-                            <td>{publisher.memberName}</td>
-                            <td>{publisher.memberAddress}</td>
+                            <td>{publisher.publisherName}</td>
+                            <td>{publisher.publisherAddress}</td>
                             <td>
                                 <Button variant="warning" onClick={() => navigate(`/editpublisher/${publisher.publisherId}`, { state: {publisher: publisher}})}>
                                     Edit
