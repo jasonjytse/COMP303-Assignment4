@@ -8,7 +8,7 @@ pipeline {
     environment { 
         GITHUB_PAT = credentials('GitHub_PAT')
         GITHUB_URL = "https://${GITHUB_PAT}@github.com/jasonjytse/COMP303-Assignment4.git"
-        DEPLOYMENT_ENV = 'development'
+        DEPLOYMENT_ENV = 'production'
     }
 
     stages {
